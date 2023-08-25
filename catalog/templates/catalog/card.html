@@ -1,0 +1,30 @@
+{% extends  'catalog/base.html'%}
+{% load my_tags%}
+
+{% block content %}
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{ product.name}}</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">{{ product.price_for_purchase}} р.</h1>
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li class="text-center">{{ product.description}}</li>
+                        <li class="text-center">Категория: {{ product.category}}</li>
+                        <li class="text-center">Произведен: {{ product.creation_date}}</li>
+                        <li class="text-center">Последние обновления: {{ product.last_change_date}}</li>
+                    </ul>
+<!--                    <img class="card-img-top" src= "{{ product.image|mymedia}}"  alt = "Card image cap">-->
+                    <img src="{% mymedia product.image %}" alt="Card image cap">
+                    <button type="button" class="btn btn-lg btn-block btn-outline-success" onclick="window.location.href = '/card/'">КУПИТЬ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

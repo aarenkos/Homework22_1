@@ -1,0 +1,36 @@
+{% extends  'catalog/base.html'%}
+{% block content %}
+
+
+<div class="container">
+    <div class="row text-center">
+        {% for object in object_list %}
+        <div class="col-4">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{object.name}}</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title pricing-card-title">{{object.price_for_purchase}} р.</h1>
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li>- {{ object.description|slice:":100" }}</li>
+                        <li></li>
+                        <li></li>
+                        <li>- {{ object.category}}</li>
+                    </ul>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary"
+                            onclick="window.location.href = '/card/{{ object.id }}' ">К карте товара
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}
+    </div>
+    <div class="row text-center">
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
