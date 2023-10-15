@@ -18,10 +18,17 @@
                         <li></li>
                         <li>- {{ object.category}}</li>
                     </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary"
-                            onclick="window.location.href = '/card/{{ object.id }}' ">К карте товара
-                    </button>
-
+<!--                    <button type="button" class="btn btn-lg btn-block btn-outline-primary"-->
+<!--                            onclick="window.location.href = '/card/{{ object.id }}' ">К карте товара-->
+<!--                    </button>-->
+                    <div class="btn-group">
+                        <a href="{% url 'view_product' object.pk %}" type="button"
+                           class="btn btn-lg btn-block btn-outline-primary">Карта товара</a>
+                        <a href="{% url 'edit_product' object.pk %}" type="button"
+                           class="btn btn-lg btn-block btn-outline-primary">Редактировать товар</a>
+                        <a href="{% url 'delete_product' object.pk %}" type="button"
+                           class="btn btn-lg btn-block btn-outline-primary">Удалить товар</a>
+                    </div>
                 </div>
             </div>
         </div>
